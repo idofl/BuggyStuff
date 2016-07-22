@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuggyStuff", "BuggyStuff\BuggyStuff.csproj", "{994A7C7A-D5D2-461A-B8F6-5CD5C7F27120}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{181FE51F-A837-43AE-8EBD-67883F1E9021}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{590CAFC2-0BD6-48BB-8027-C3D247505BCD}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{994A7C7A-D5D2-461A-B8F6-5CD5C7F27120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994A7C7A-D5D2-461A-B8F6-5CD5C7F27120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994A7C7A-D5D2-461A-B8F6-5CD5C7F27120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994A7C7A-D5D2-461A-B8F6-5CD5C7F27120}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
