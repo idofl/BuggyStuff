@@ -56,7 +56,7 @@ namespace BuggyStuff.Controllers
         [HttpGet]
         public async Task<string> HangForever()
         {
-            // Hand, but don't inccur CPU
+            // Hand, but don't incur CPU
             while(true)
             {
                 await Task.Delay(1000);
