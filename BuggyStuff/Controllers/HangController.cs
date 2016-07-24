@@ -51,5 +51,16 @@ namespace BuggyStuff.Controllers
                 }
             }
         }
+
+        [Route("api/hang/forever")]
+        [HttpGet]
+        public async Task<string> HangForever()
+        {
+            // Hand, but don't inccur CPU
+            while(true)
+            {
+                await Task.Delay(1000);
+            }
+        }
     }   
 }
