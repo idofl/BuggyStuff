@@ -1,0 +1,19 @@
+﻿<Window x:Class="BuggyStuffWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BuggyStuffWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="btnKillCpu" Content="Kill CPU" HorizontalAlignment="Left" Margin="33,35,0,0" VerticalAlignment="Top" Width="75" Click="btnKillCpu_Click"/>
+        <Button x:Name="btnMemoryLeak" Content="Memory Leak" HorizontalAlignment="Left" Margin="33,78,0,0" VerticalAlignment="Top" Width="75" Click="btnMemoryLeak_Click"/>
+        <Button x:Name="btnGc" Content="GC" HorizontalAlignment="Left" Margin="33,122,0,0" VerticalAlignment="Top" Width="75" Click="btnGc_Click"/>
+        <Button x:Name="btnUiUtilization" Content="Hang UI" HorizontalAlignment="Left" Height="19" Margin="33,163,0,0" VerticalAlignment="Top" Width="75" Click="btnUiUtilization_Click"/>
+        <Button x:Name="btnUnevenWorkload" Content="Uneven Workload" HorizontalAlignment="Left" Margin="33,200,0,0" VerticalAlignment="Top" Width="75" Click="btnUnevenWorkload_Click"/>
+        <Button x:Name="btnOverSubscription" Content="Oversubscription" HorizontalAlignment="Left" Margin="33,239,0,0" VerticalAlignment="Top" Width="75" Click="btnOversubscription_Click"/>
+        <Button x:Name="btnLockConvoy" Content="Lock Convoy" HorizontalAlignment="Left" Margin="33,277,0,0" VerticalAlignment="Top" Width="75" Click="btnLockConvoy_Click"/>
+
+    </Grid>
+</Window>

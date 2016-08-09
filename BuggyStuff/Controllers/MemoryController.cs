@@ -1,4 +1,5 @@
 ﻿using BuggyStuff.Models;
+using BuggyStuff.Shared;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -62,19 +63,8 @@ namespace BuggyStuff.Controllers
         [ActionName("Cache")]
         public void CacheProduct()
         {
-            ProductsRepository repository = new ProductsRepository();
-
-            var product = repository.GetProduct<Product>(0, "Product");
-
-            this.HttpContext.Cache.Add(
-                Guid.NewGuid().ToString(),
-                product,
-                null,
-                DateTime.MaxValue,
-                TimeSpan.FromHours(1),
-                CacheItemPriority.Normal,
-                OnCacheItemRemoved
-                );
+            var product = Memory.CreateNewProduct();
+            Memory.CacheProduct(product, OnCacheItemRemovedMemoryCache);                    
         }
 
         [ActionName("GC")]
@@ -85,7 +75,12 @@ namespace BuggyStuff.Controllers
             GC.Collect();
         }
 
-        public void OnCacheItemRemoved(string key, object value, CacheItemRemovedReason reason)
+        public void OnCacheItemRemovedMemoryCache(string key)
+        {
+            Trace.TraceInformation("Key has been evicted: " + key);
+        }
+
+        public void OnCacheItemRemovedHttpCache(string key, object value, CacheItemRemovedReason reason)
         {
             if (reason == CacheItemRemovedReason.Expired)
             {

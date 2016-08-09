@@ -13,14 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{181FE5
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{590CAFC2-0BD6-48BB-8027-C3D247505BCD}"
-	ProjectSection(SolutionItems) = preProject
-		Performance1.psess = Performance1.psess
-	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuggyStuff.Shared", "BuggyStuff.Shared\BuggyStuff.Shared.csproj", "{1413F242-E8EC-44A7-8B0C-CEC2F23B1827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuggyStuffWpf", "BuggyStuffWpf\BuggyStuffWpf.csproj", "{FB3B2050-13FC-40D8-B3C0-FF24722DEB75}"
 EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -30,6 +28,14 @@ Global
 		{994A7C7A-D5D2-461A-B8F6-5CD5C7F27120}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{994A7C7A-D5D2-461A-B8F6-5CD5C7F27120}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{994A7C7A-D5D2-461A-B8F6-5CD5C7F27120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1413F242-E8EC-44A7-8B0C-CEC2F23B1827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1413F242-E8EC-44A7-8B0C-CEC2F23B1827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1413F242-E8EC-44A7-8B0C-CEC2F23B1827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1413F242-E8EC-44A7-8B0C-CEC2F23B1827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB3B2050-13FC-40D8-B3C0-FF24722DEB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB3B2050-13FC-40D8-B3C0-FF24722DEB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB3B2050-13FC-40D8-B3C0-FF24722DEB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB3B2050-13FC-40D8-B3C0-FF24722DEB75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

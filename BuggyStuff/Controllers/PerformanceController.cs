@@ -1,4 +1,5 @@
 ﻿using BuggyStuff.Models;
+using BuggyStuff.Shared;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -70,41 +71,25 @@ namespace BuggyStuff.Controllers
                 {
                     primes.Add(i);
                 };
-            
+
             return primes;
         }
 
-        [Route("api/cpu")]
+     
+        [Route("api/cpu/{cpuUsage:int?}")]
         [HttpGet]
-        public void GenerateLoad()
+        public void GenerateLoad(int cpuUsage = 85)
         {
-            int cpuUsage = 85;
-            int time = 10000;
-            List<Task> threads = new List<Task>();
-            List<CancellationTokenSource> tokens = new List<CancellationTokenSource>();
-
-            for (var i = 0; i < Environment.ProcessorCount; i++)
-            {
-                var cancelationTokenSource = new CancellationTokenSource();
-                tokens.Add(cancelationTokenSource);
-                threads.Add(Task.Factory.StartNew(() => CPUKill(cpuUsage, cancelationTokenSource.Token), tokens[i].Token));
-            }
-
-            Thread.Sleep(time);
-
-            for (var i = 0; i < Environment.ProcessorCount; i++)
-            {
-                tokens[i].Cancel();
-            }
+            Performance.KillCpu(cpuUsage);           
         }
 
         [Route("api/latency/linear/{delay}/{chunkSize}")]
         [HttpGet]
         public HttpResponseMessage GetDelayedBodyAsLinear(int delay, int chunkSize)
         {
-            return GenerateResponse(delay, chunkSize, (idx,size)=> size* (idx+1));
+            return GenerateResponse(delay, chunkSize, (idx, size) => size * (idx + 1));
         }
-         
+
         [Route("api/latency/exponential/{delay}/{chunkSize}")]
         [HttpGet]
         public HttpResponseMessage GetDelayedBodyAsExponential(int delay, int chunkSize)
@@ -112,7 +97,7 @@ namespace BuggyStuff.Controllers
             return GenerateResponse(delay, chunkSize, (idx, size) => (int)Math.Pow(size, idx));
         }
 
-        private static HttpResponseMessage GenerateResponse(int delay, int chunkSize, Func<int,int,int> sizeDelegate)
+        private static HttpResponseMessage GenerateResponse(int delay, int chunkSize, Func<int, int, int> sizeDelegate)
         {
             HttpResponseMessage response = new HttpResponseMessage();
             response.Content = new PushStreamContent((responseStream, httpContent, context) =>
@@ -139,27 +124,7 @@ namespace BuggyStuff.Controllers
             }, "text/plain");
 
             return response;
-        }
-
-        public static void CPUKill(object cpuUsage, CancellationToken ct)
-        {
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
-            while (true)
-            {
-                if (ct.IsCancellationRequested)
-                {
-                    // Clean up here, then...
-                    ct.ThrowIfCancellationRequested();
-                }
-                if (watch.ElapsedMilliseconds > (int)cpuUsage)
-                {
-                    Thread.Sleep(100 - (int)cpuUsage);
-                    watch.Reset();
-                    watch.Start();
-                }
-            }
-        }     
+        }      
     }
 
     public static class PrimeUtil
