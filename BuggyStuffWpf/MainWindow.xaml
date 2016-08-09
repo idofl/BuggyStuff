@@ -6,14 +6,17 @@
         xmlns:local="clr-namespace:BuggyStuffWpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Button x:Name="btnKillCpu" Content="Kill CPU" HorizontalAlignment="Left" Margin="33,35,0,0" VerticalAlignment="Top" Width="75" Click="btnKillCpu_Click"/>
-        <Button x:Name="btnMemoryLeak" Content="Memory Leak" HorizontalAlignment="Left" Margin="33,78,0,0" VerticalAlignment="Top" Width="75" Click="btnMemoryLeak_Click"/>
-        <Button x:Name="btnGc" Content="GC" HorizontalAlignment="Left" Margin="33,122,0,0" VerticalAlignment="Top" Width="75" Click="btnGc_Click"/>
-        <Button x:Name="btnUiUtilization" Content="Hang UI" HorizontalAlignment="Left" Height="19" Margin="33,163,0,0" VerticalAlignment="Top" Width="75" Click="btnUiUtilization_Click"/>
-        <Button x:Name="btnUnevenWorkload" Content="Uneven Workload" HorizontalAlignment="Left" Margin="33,200,0,0" VerticalAlignment="Top" Width="75" Click="btnUnevenWorkload_Click"/>
-        <Button x:Name="btnOverSubscription" Content="Oversubscription" HorizontalAlignment="Left" Margin="33,239,0,0" VerticalAlignment="Top" Width="75" Click="btnOversubscription_Click"/>
-        <Button x:Name="btnLockConvoy" Content="Lock Convoy" HorizontalAlignment="Left" Margin="33,277,0,0" VerticalAlignment="Top" Width="75" Click="btnLockConvoy_Click"/>
+    <Grid HorizontalAlignment="Left" Width="517">
+        <Button x:Name="btnKillCpu" Content="Kill CPU" HorizontalAlignment="Left" Margin="33,35,0,0" VerticalAlignment="Top" Width="87" Click="btnKillCpu_Click"/>
+        <Button x:Name="btnMemoryLeak" Content="Memory leak" HorizontalAlignment="Left" Margin="153,35,0,0" VerticalAlignment="Top" Width="87" Click="btnMemoryLeak_Click"/>
+        <Button x:Name="btnGc" Content="GC" HorizontalAlignment="Left" Margin="153,72,0,0" VerticalAlignment="Top" Width="87" Click="btnGc_Click"/>
+        <Button x:Name="btnUiUtilization" Content="UI profiling" HorizontalAlignment="Left" Height="19" Margin="33,73,0,0" VerticalAlignment="Top" Width="87" Click="btnUiUtilization_Click"/>
+        <Button x:Name="btnUnevenWorkload" Content="Uneven workload" HorizontalAlignment="Left" Margin="263,107,0,0" VerticalAlignment="Top" Width="105" Click="btnUnevenWorkload_Click"/>
+        <Button x:Name="btnOverSubscription" Content="Oversubscription" HorizontalAlignment="Left" Margin="263,72,0,0" VerticalAlignment="Top" Width="105" Click="btnOversubscription_Click"/>
+        <Button x:Name="btnLockConvoy" Content="Lock convoy" HorizontalAlignment="Left" Margin="263,35,0,0" VerticalAlignment="Top" Width="105" Click="btnLockConvoy_Click"/>
+        <Button x:Name="btnTaskTree" Content="Task tree" HorizontalAlignment="Left" Margin="263,143,0,0" VerticalAlignment="Top" Width="105" Click="btnTaskTree_Click"/>
+        <Button x:Name="btnSamplingVsInstrumentation" Content="Hang" HorizontalAlignment="Left" Height="22" Margin="33,107,0,0" VerticalAlignment="Top" Width="87" Click="btnSamplingVsInstrumentation_Click"/>
+        <Button x:Name="btnAllocateMany" Content="Allocations" HorizontalAlignment="Left" Height="20" Margin="153,107,0,0" VerticalAlignment="Top" Width="87" Click="btnAllocateMany_Click"/>
 
     </Grid>
 </Window>

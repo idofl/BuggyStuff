@@ -88,5 +88,54 @@ namespace BuggyStuff.Shared
                 });
             counter.Wait();
         }
+
+        public static void TaskTree()
+        {
+            Parallel.For(0, 30, TaskA);
+        }
+
+        private static void TaskA(int i)
+        {
+            if (i < 3)
+                Task.Run(() => TaskA1(1));
+            else
+                TaskB(i);
+        }
+
+        private static void TaskA1(int count)
+        {
+            if (count <= 10)
+                TaskA1(count + 1);
+            else
+            {
+                for(int i=0; i < count; i++)
+                {
+                    Task.Factory.StartNew(
+                        () => {},
+                        TaskCreationOptions.AttachedToParent);
+                }
+                Performance.HangFor(3000);
+            }
+        }
+
+        private static void TaskB(int i)
+        {
+            Performance.HangFor(2000);
+            if (i % 2 == 0)
+                TaskC(i);
+            else
+                TaskD(i);
+
+        }
+
+        private static void TaskD(int i)
+        {
+            Performance.HangFor(2000);
+        }
+
+        private static void TaskC(int i)
+        {
+            Performance.HangFor(2000);            
+        }
     }
 }

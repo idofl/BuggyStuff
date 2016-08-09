@@ -68,5 +68,23 @@ namespace BuggyStuffWpf
             Concurrency.LockConvoy();
             MessageBox.Show("Done");
         }
+
+        private void btnTaskTree_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Wait for couple of seconds, and then click Bsreak All");
+            Concurrency.TaskTree();
+            MessageBox.Show("Done");
+        }
+
+        private void btnSamplingVsInstrumentation_Click(object sender, RoutedEventArgs e)
+        {
+            Performance.LongRunningMethods();
+            MessageBox.Show("Done");
+        }
+
+        private void btnAllocateMany_Click(object sender, RoutedEventArgs e)
+        {
+            Memory.AllocateMany();
+        }   
     }
 }

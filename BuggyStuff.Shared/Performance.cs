@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -55,6 +56,12 @@ namespace BuggyStuff.Shared
             }
         }
 
+        public static void LongRunningMethods()
+        {
+            HangFor(3000);
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         public static void HangFor(int duration)
         {
             Random rand = new Random();
