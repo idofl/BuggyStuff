@@ -20,7 +20,6 @@ namespace BuggyStuff.Controllers
 
         public IEnumerable<Product> GetLongList()
         {
-            //System.Diagnostics.Trace.TraceError()
             var result = _repository.GetLongExList();
             return result;
         }

@@ -54,6 +54,27 @@ namespace BuggyStuff.Shared
                 GC.Collect();
             });
         }
+
+        public static void AllocateMany()
+        {
+            List<BigProduct> bigProducts = new List<Shared.BigProduct>();
+            List<SmallProduct> smallProducts = new List<Shared.SmallProduct>();
+
+            for (int i=0; i<1000; i++)
+            {
+                bigProducts.Add(CreateNewProduct());
+            }
+
+            for (int i=0; i<1000000; i++)
+            {
+                smallProducts.Add(
+                    new SmallProduct
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = "test"
+                    });
+            }
+        }
     }
      
     public class BigProduct
@@ -63,4 +84,9 @@ namespace BuggyStuff.Shared
         public byte[] Photo { get; set; }
     }
 
+    public class SmallProduct
+    {
+        public string Name { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+    }
 }
