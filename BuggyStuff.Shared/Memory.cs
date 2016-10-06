@@ -23,7 +23,17 @@ namespace BuggyStuff.Shared
             return product;
         }
 
-        public static void CacheProduct(BigProduct product, Action<string> removedCallback)
+        public static SmallProduct CreateNewRegularProduct()
+        {
+            SmallProduct product = new SmallProduct
+            {
+                Name = Guid.NewGuid().ToString(),
+            };
+
+            return product;
+        }
+
+        public static void CacheProduct(SmallProduct product, Action<string> removedCallback)
         {
             
             CacheItemPolicy policy = new CacheItemPolicy
@@ -76,17 +86,15 @@ namespace BuggyStuff.Shared
             }
         }
     }
-     
-    public class BigProduct
-    {
-        public string Name { get; set; }
-        public Guid Id { get; set; } = Guid.NewGuid();
-        public byte[] Photo { get; set; }
-    }
 
     public class SmallProduct
     {
-        public string Name { get; set; }
         public Guid Id { get; set; } = Guid.NewGuid();
+        public string Name { get; set; }
     }
+
+    public class BigProduct : SmallProduct
+    {               
+        public byte[] Photo { get; set; }
+    }    
 }

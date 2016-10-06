@@ -30,7 +30,7 @@ namespace BuggyStuff.Controllers
         {
             lock (syncobjA)
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(10000);
                 lock (syncobjB)
                 {
                     return "A done";
@@ -44,7 +44,7 @@ namespace BuggyStuff.Controllers
         {
             lock (syncobjB)
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(10000);
                 lock (syncobjA)
                 {
                     return "B done";

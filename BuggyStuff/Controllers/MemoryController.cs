@@ -16,7 +16,9 @@ namespace BuggyStuff.Controllers
 {
     public class MemoryController : Controller
     {
-        private int[] _bigArray = new int[10000];
+        #region private fields
+        private int[] _bigArray = new int[250000]; // 1MB array
+        #endregion
 
         [ActionName("dictionary")]
         public JsonResult LargeDictionaryAllocations()
@@ -63,7 +65,7 @@ namespace BuggyStuff.Controllers
         [ActionName("Cache")]
         public void CacheProduct()
         {
-            var product = Memory.CreateNewProduct();
+            var product = Memory.CreateNewRegularProduct();
             Memory.CacheProduct(product, OnCacheItemRemovedMemoryCache);                    
         }
 
