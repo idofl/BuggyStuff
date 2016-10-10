@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ConcurrencyVisualizer.Markers">
-      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\xd4zathi.4oy\SDK\Managed\4.0\Microsoft.ConcurrencyVisualizer.Markers.dll</HintPath>
+    <Reference Include="Microsoft.ConcurrencyVisualizer.Markers, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConcurrencyVisualizer.1.0.1\lib\Microsoft.ConcurrencyVisualizer.Markers.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +50,9 @@
     <Compile Include="Memory.cs" />
     <Compile Include="Performance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
