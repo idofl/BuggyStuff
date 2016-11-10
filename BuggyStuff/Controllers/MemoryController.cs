@@ -77,6 +77,15 @@ namespace BuggyStuff.Controllers
             GC.Collect();
         }
 
+        [ActionName("Gen0")]
+        public void Gen0GC()
+        {
+            // Cause a lot of memory to be allocated, causing gen0 collection
+            for (int i = 0; i < 1000; i++)
+            {
+                BigProduct product = Memory.CreateNewProduct();
+            }
+        }
         public void OnCacheItemRemovedMemoryCache(string key)
         {
             Trace.TraceInformation("Key has been evicted: " + key);

@@ -56,11 +56,27 @@ namespace BuggyStuff.Controllers
         [HttpGet]
         public async Task<string> HangForever()
         {
-            // Hand, but don't incur CPU
+            // Hang, but don't incur CPU
             while(true)
             {
                 await Task.Delay(1000);
             }
         }
+
+        [Route("api/hang/finalizer")]
+        [HttpGet]
+        public string Finalizer()
+        {
+            var obj = BuggyStuff.Shared.Hang.CreateObj(false);
+            var task = Task.Run(() =>
+                {
+                    Thread.Sleep(2000);
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
+                });
+            obj = null;
+            return "Finalizer stopped working. Try allocating lots of memory (/memory/dictionary), or unloading the appDomain";
+        }      
     }   
 }

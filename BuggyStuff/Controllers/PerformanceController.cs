@@ -40,7 +40,7 @@ namespace BuggyStuff.Controllers
         [Route("api/latency/lambda")]
         [HttpGet]
         public string DoLambdas()
-        {
+        {            
             Stopwatch watch = new Stopwatch();
             int result = 0;
             watch.Start();

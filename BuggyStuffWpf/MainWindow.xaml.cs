@@ -71,7 +71,7 @@ namespace BuggyStuffWpf
 
         private void btnTaskTree_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Wait for couple of seconds, and then click Bsreak All");
+            MessageBox.Show("Wait for couple of seconds, and then click Break All");
             Concurrency.TaskTree();
             MessageBox.Show("Done");
         }

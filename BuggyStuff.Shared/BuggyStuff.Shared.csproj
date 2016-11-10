@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concurrency.cs" />
+    <Compile Include="Hang.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Performance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
